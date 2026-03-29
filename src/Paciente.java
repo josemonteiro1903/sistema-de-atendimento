@@ -1,5 +1,6 @@
 public class Paciente {
 
+    //atributos solicitados da classe paciente
     private int idPaciente;
     private String nome;
     private int idade;
@@ -8,6 +9,7 @@ public class Paciente {
     private String sintomas;
     private String statusAtendimento;
 
+    //construtor da classe paciente
     public Paciente(int idPaciente, String nome, int idade, int cpf, String prioridade, String sintomas,
             String statusAtendimento) {
         this.idPaciente = idPaciente;
@@ -19,6 +21,7 @@ public class Paciente {
         this.statusAtendimento = statusAtendimento;
     }
 
+    //get's e set's da classe paciente
     public int getIdPaciente() {
         return idPaciente;
     }
