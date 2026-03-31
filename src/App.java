@@ -10,12 +10,7 @@ public class App {
         prontuario.registrarDiagnostico(scanner);
         prontuario.adicionarSintoma(scanner);
         prontuario.adicionarMedicamento(scanner);
-        prontuario.adicionarSintoma(scanner);
-        prontuario.adicionarMedicamento(scanner);
-        prontuario.adicionarMedicamento(scanner);
-        prontuario.adicionarSintoma(scanner);
-        prontuario.adicionarMedicamento(scanner);
-        prontuario.adicionarSintoma(scanner);
+        
         prontuario.exibirProntuario();
 
         //Menu inicio
