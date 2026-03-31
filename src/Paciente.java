@@ -78,5 +78,27 @@ public class Paciente {
         this.statusAtendimento = statusAtendimento;
     }
 
+     public void cadastrar(){
+        System.out.println("Paciente "+this.nome+" Cadastrado com sucesso");
+        
+    }
     
+    public void exibirStatus(){
+        System.out.println(toString());
+    }
+    
+    
+    public void atualizarStatus(String novosSintomas, String novoStatus){
+        this.sintomas = novosSintomas;
+        this.statusAtendimento = novoStatus;
+        System.out.println("Dados de "+ this.nome+ "Atualizados" );
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente [idPaciente=" + idPaciente + ", nome=" + nome + ", idade=" + idade + ", cpf=" + cpf
+                + ", prioridade=" + prioridade + ", sintomas=" + sintomas + ", statusAtendimento=" + statusAtendimento
+                + "]";
+    }
+
 }
