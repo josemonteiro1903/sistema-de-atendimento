@@ -1,17 +1,27 @@
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
+
         int menu = -1;
 
-        Paciente paciente = new Paciente(1, "Jorge", 34, 011, "Baixa", "Tosse", "Em andamento");
+        //-----------------------------
+        //Adicionei uma Classe que usa o scanner por ela mesma,
+        //porque quando usamos scanner.nextInt(), se a gente não
+        //usar scanner.nextLine() logo depois, o código detecta
+        //o enter no próximo scanner e quebra tudo.
+        Selecoes scanner = new Selecoes();
+        //Ainda vai ser chamado scanner, e as funções continuam as mesmas
+        //com se fosse o antigo scanner.
+        //------------------------------
+
+        UnidadeAtendimento unidadeAtendimento = new UnidadeAtendimento();
+
+        /*Paciente paciente = new Paciente(1, "Jorge", 34, 011, "Baixa", "Tosse", "Em andamento");
         Prontuario prontuario = new Prontuario(1, paciente);
         prontuario.registrarDiagnostico(scanner);
         prontuario.adicionarSintoma(scanner);
         prontuario.adicionarMedicamento(scanner);
         
-        prontuario.exibirProntuario();
+        prontuario.exibirProntuario();*/
 
         //Menu inicio
 
@@ -32,7 +42,26 @@ public class App {
 
             switch (menu) {
                 case 1:
-                    paciente.cadastrar();
+                    int id = unidadeAtendimento.getPacientesCadastrados().count + 1;
+
+                    System.out.println("Digite o nome do paciente: ");
+                    String nome = scanner.nextLine();
+
+                    System.out.println("Digite a idade do paciente: ");
+                    int idade = scanner.nextInt();
+
+                    System.out.println("Digite o cpf do paciente: ");
+                    int cpf = scanner.nextInt();
+
+                    System.out.println("Digite a prioridade do paciente: ");
+                    String prioridade = scanner.nextLine();
+
+                    System.out.println("Digite os sintomas do paciente: ");
+                    String sintomas = scanner.nextLine();
+
+                    Paciente newPaciente = new Paciente(id, nome, idade, cpf, prioridade, sintomas, "Não atendido");
+                    newPaciente.cadastrar(unidadeAtendimento.getPacientesCadastrados());
+                    scanner.apertarParaContinuar();
                     break;
 
                 case 2:
