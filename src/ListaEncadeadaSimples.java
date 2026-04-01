@@ -1,6 +1,6 @@
 public class ListaEncadeadaSimples {
 
-     int count;
+    int count;
     NodeString head;
 
     public ListaEncadeadaSimples(){
