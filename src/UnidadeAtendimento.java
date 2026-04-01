@@ -30,7 +30,7 @@ public class UnidadeAtendimento {
     public void setAtendimentoFinalizados(Pilha atendimentoFinalizados) {
         this.atendimentoFinalizados = atendimentoFinalizados;
     }
-<<<<<<< HEAD
+
 
     public ListaEncadeadaSimples getPacientesCadastrados() {
         return pacientesCadastrados;
@@ -80,54 +80,3 @@ public class UnidadeAtendimento {
     }
 
 }
-=======
-
-    public ListaEncadeadaSimples getPacientesCadastrados() {
-        return pacientesCadastrados;
-    }
-    public void setPacientesCadastrados(ListaEncadeadaSimples pacientesCadastrados) {
-        this.pacientesCadastrados = pacientesCadastrados;
-    }
-
-    public ListaDuplamenteEncadeada getProntuariosAcessados() {
-        return prontuariosAcessados;
-    }
-    public void setProntuariosAcessados(ListaDuplamenteEncadeada prontuariosAcessados) {
-        this.prontuariosAcessados = prontuariosAcessados;
-    }
-
-    public int getCount() {
-        return count;
-    }
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    // Ainda falta fazer os metodos da unidade
-    public void registrarChegadaPaciente(Atendimento paciente) {
-        filaEspera.add(paciente);
-    }
-
-    public void chamarProximoPaciente() {
-
-    }
-
-    public void finalizarAtendimento(Atendimento atendimento) {
-        atendimentoFinalizados.Push(atendimento);
-        filaEspera.remove();
-    }
-
-    public void exibirFila() {
-        filaEspera.print();
-    }
-
-    public void exibirHistorico() {
-        atendimentoFinalizados.print();
-    }
-
-    public void navegarProntuarios() {
-        prontuariosAcessados.print();
-    }
-
-}
->>>>>>> 0660106265f0c12ffab62465006a069336bb5480
