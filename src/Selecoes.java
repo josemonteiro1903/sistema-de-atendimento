@@ -26,4 +26,8 @@ public class Selecoes {
         scanner.nextLine();
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0660106265f0c12ffab62465006a069336bb5480
