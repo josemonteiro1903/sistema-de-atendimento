@@ -3,31 +3,32 @@ public class Fila {
     int count;
     NodeAtendimento head;
     NodeAtendimento tail;
+
     public Fila() {
         this.count = 0;
         this.head = null;
         this.tail = null;
     }
 
-    public boolean isNull(){
+    public boolean isNull() {
         return head == null;
     }
 
-        public void add(Atendimento data){
+    public void add(Atendimento data) {
         NodeAtendimento newNode = new NodeAtendimento(data);
 
-        if(isNull()){
+        if (isNull()) {
             head = newNode;
             tail = newNode;
-        }else{
+        } else {
             newNode.prev = tail;
             tail.next = newNode;
             tail = newNode;
-        }    
+        }
         count++;
     }
 
-        public void peek(){
+    public void peek() {
         if (head == null) {
             System.out.println("Fila vazia");
             return;
@@ -35,7 +36,7 @@ public class Fila {
         System.out.println(head.data);
     }
 
-    public void print(){
+    public void print() {
         NodeAtendimento temp = head;
 
         while (temp != null) {
@@ -44,7 +45,8 @@ public class Fila {
         }
 
     }
-    public void remove(){
+
+    public void remove() {
         if (head == null) {
             System.out.println("Fila vazia");
             return;
@@ -62,12 +64,12 @@ public class Fila {
         count--;
     }
 
-    public void isEmpty(){
+    public void isEmpty() {
         if (head == null) {
             System.out.println("A fila está vazia");
-        }else{
+        } else {
             System.out.println("A fila NÃO está vazia");
         }
     }
-    
+
 }

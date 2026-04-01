@@ -52,8 +52,8 @@ public class UnidadeAtendimento {
     }
 
     // Ainda falta fazer os metodos da unidade
-    public void registrarChegadaPaciente(Atendimento paciente) {
-        filaEspera.add(paciente);
+    public void registrarChegadaPaciente(Atendimento atendimento) {
+        filaEspera.add(atendimento);
     }
 
     public void chamarProximoPaciente() {

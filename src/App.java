@@ -94,10 +94,34 @@ public class App {
                     }
                     break;
                 case 3:
-
+                    System.out.println("Qual paciente chegou na fila?");
+                    unidadeAtendimento.getPacientesCadastrados().print();
+                    String escolha = scanner.nextLine();
+                    Paciente pacienteEscolhido = unidadeAtendimento.acharPaciente(escolha);
+                    if (pacienteEscolhido == null) {
+                        System.out.println("Paciente não encontrado.");
+                        scanner.apertarParaContinuar();
+                    }else{
+                        System.out.println("Escreva o horário de entrada");
+                        double horario = scanner.nextDouble();
+                        System.out.println("Escreva o médico que acompanhará o paciente");
+                        String medico = scanner.nextLine();
+                        Atendimento newAtendimento = new Atendimento(pacienteEscolhido, pacienteEscolhido.getIdPaciente(), horario, medico);
+                        unidadeAtendimento.registrarChegadaPaciente(newAtendimento);
+                        System.out.println("Paciente registrado na fila!");
+                        scanner.apertarParaContinuar();
+                    }
                     break;
 
                 case 4:
+                    Fila fila = unidadeAtendimento.getFilaEspera();
+                    NodeAtendimento temp = fila.head;
+                    int posicao = 1;
+                    while(temp != null){
+                        System.out.println("Paciente "+posicao+": "+temp.data.getPaciente().getNome());
+                        temp = temp.next;
+                    }
+                    scanner.apertarParaContinuar();
                     break;
                 case 5:
 

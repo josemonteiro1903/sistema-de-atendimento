@@ -8,11 +8,48 @@ public class Atendimento {
     private double horarioAtendimento;
     private String status;
     private String medico;
+    
     public Atendimento(Paciente paciente, int idAtendimento, double horarioEntrada, String medico) {
         this.paciente = paciente;
         this.idAtendimento = idAtendimento;
         this.horarioEntrada = horarioEntrada;
         this.status = "No aguardo";
+        this.medico = medico;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public int getIdAtendimento() {
+        return idAtendimento;
+    }
+    public void setIdAtendimento(int idAtendimento) {
+        this.idAtendimento = idAtendimento;
+    }
+
+    public double getHorarioEntrada() {
+        return horarioEntrada;
+    }
+    public void setHorarioEntrada(double horarioEntrada) {
+        this.horarioEntrada = horarioEntrada;
+    }
+
+    public double getHorarioAtendimento() {
+        return horarioAtendimento;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public String getMedico() {
+        return medico;
+    }
+
+    public void setMedico(String medico) {
         this.medico = medico;
     }
 
