@@ -1,8 +1,8 @@
 public class ListaDuplamenteEncadeada {
 
 
-    NodeString head;
-    NodeString tail;
+    NodeListas head;
+    NodeListas tail;
 
     public ListaDuplamenteEncadeada(){
  
@@ -15,35 +15,35 @@ public class ListaDuplamenteEncadeada {
     }
 
     public void insertHead(String data){
-        NodeString NewNodeString = new NodeString(data);
+        NodeListas newNodeListas = new NodeListas(data);
         if (isNull()) {
-            head = NewNodeString;
-            tail = NewNodeString;
+            head = newNodeListas;
+            tail = newNodeListas;
         }
         else{
-            head.prev = NewNodeString;
-            NewNodeString.next = head;
-            head = NewNodeString;
+            head.prev = newNodeListas;
+            newNodeListas.next = head;
+            head = newNodeListas;
         }
 
 
     }
     public void insertTail(String data){
-        NodeString NewNodeString = new NodeString(data);
+        NodeListas newNodeListas = new NodeListas(data);
         if (isNull()) {
-            head = NewNodeString;
-            tail = NewNodeString;
+            head = newNodeListas;
+            tail = newNodeListas;
         }
         else{
-            tail.next = NewNodeString;
-            NewNodeString.prev = NewNodeString;
-            tail = NewNodeString;
+            tail.next = newNodeListas;
+            newNodeListas.prev = newNodeListas;
+            tail = newNodeListas;
         }
 
     }
 
     public void print(){
-        NodeString temp = head;
+        NodeListas temp = head;
 
         while (temp != null) {
             System.out.println(temp.dataString);

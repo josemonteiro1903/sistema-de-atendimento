@@ -15,7 +15,12 @@ public class App {
 
         UnidadeAtendimento unidadeAtendimento = new UnidadeAtendimento();
 
-        /*Paciente paciente = new Paciente(1, "Jorge", 34, 011, "Baixa", "Tosse", "Em andamento");
+        Paciente teste1 = new Paciente(1, "Jorge", 34, 011, "Baixa", "Tosse", "Em andamento");
+        Paciente teste2 = new Paciente(2, "ABC", 34, 011, "Baixa", "Tosse", "Em andamento");
+        teste1.cadastrar(unidadeAtendimento.getPacientesCadastrados());
+        teste2.cadastrar(unidadeAtendimento.getPacientesCadastrados());
+
+        /*
         Prontuario prontuario = new Prontuario(1, paciente);
         prontuario.registrarDiagnostico(scanner);
         prontuario.adicionarSintoma(scanner);
@@ -65,6 +70,28 @@ public class App {
                     break;
 
                 case 2:
+                    int opcao = -1;
+                    while(opcao != 0){
+                        System.out.println("========================================");
+                        unidadeAtendimento.getPacientesCadastrados().print();
+                        System.out.println("0 - Sair\n1 - Escolher Paciente");
+                        opcao = scanner.nextInt();
+                        if (opcao == 1) {
+                            System.out.println("Escolha o nome do paciente que quer procurar");
+                            String escolha = scanner.nextLine();
+                            Paciente pacienteEscolhido = unidadeAtendimento.acharPaciente(escolha);
+                            if (pacienteEscolhido == null) {
+                                System.out.println("Paciente não encontrado.");
+                                scanner.apertarParaContinuar();
+                            }else{
+                                pacienteEscolhido.exibirStatus();
+                                scanner.apertarParaContinuar();
+                            }
+                        }else if(opcao != 0){
+                            System.out.println("Opção não reconhecida!");
+                            scanner.apertarParaContinuar();
+                        }
+                    }
                     break;
                 case 3:
 

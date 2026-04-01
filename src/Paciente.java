@@ -73,7 +73,7 @@ public class Paciente {
     }
 
     public void cadastrar(ListaEncadeadaSimples pacientesCadastrados){
-        pacientesCadastrados.add(nome);
+        pacientesCadastrados.add(nome, this);
         System.out.println("Paciente "+this.nome+" Cadastrado com sucesso");
     }
     

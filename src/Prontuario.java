@@ -23,12 +23,12 @@ public class Prontuario {
 
     public void adicionarMedicamento(Scanner scanner){
         System.out.println("Digite o medicamento que deseja adicionar");
-        listaMedicamentos.add(scanner.nextLine());
+        listaMedicamentos.add(scanner.nextLine(), null);
     }
 
     public void adicionarSintoma(Scanner scanner){
         System.out.println("Digite o sintoma que deseja adicionar");
-        listaSintomas.add(scanner.nextLine());
+        listaSintomas.add(scanner.nextLine(), null);
     }
     
     public void registrarDiagnostico(Scanner scanner){

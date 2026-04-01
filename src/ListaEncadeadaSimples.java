@@ -1,7 +1,7 @@
 public class ListaEncadeadaSimples {
 
     int count;
-    NodeString head;
+    NodeListas head;
 
     public ListaEncadeadaSimples(){
         this.count = 0;
@@ -12,16 +12,20 @@ public class ListaEncadeadaSimples {
          return head == null;
     }
 
-    public void add(String data){
-        NodeString nodeString = new NodeString(data);
+    public void add(String data, Paciente paciente){
+        NodeListas nodeListas = new NodeListas(data);
+
+        if (paciente != null) {
+            nodeListas.paciente = paciente;
+        }
 
         if (isNull()) {
-            head = nodeString;
+            head = nodeListas;
             count++;
         }
         else{
-            nodeString.next = head;
-            head = nodeString;
+            nodeListas.next = head;
+            head = nodeListas;
             count++;
         }
     }
@@ -38,11 +42,13 @@ public class ListaEncadeadaSimples {
     }
 
     public void print(){
-        NodeString temp = head;
+        NodeListas temp = head;
+        int listagem = 1;
 
         while (temp != null) {
-            System.out.println(temp.dataString);
+            System.out.println("Paciente "+listagem+": "+temp.dataString);
             temp = temp.next;
+            listagem++;
         }
     }
 }

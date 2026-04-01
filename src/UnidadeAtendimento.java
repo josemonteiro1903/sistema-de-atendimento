@@ -1,9 +1,7 @@
 public class UnidadeAtendimento {
 
     private Fila filaEspera;
-
     private Pilha atendimentoFinalizados;
-
     private ListaEncadeadaSimples pacientesCadastrados;
     private ListaDuplamenteEncadeada prontuariosAcessados;
 
@@ -77,6 +75,17 @@ public class UnidadeAtendimento {
 
     public void navegarProntuarios() {
         prontuariosAcessados.print();
+    }
+
+    public Paciente acharPaciente(String escolha){
+        NodeListas temp = pacientesCadastrados.head;
+        while (temp != null) {
+            if (temp.paciente.getNome().equals(escolha)) {
+                return temp.paciente;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
 }
