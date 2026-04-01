@@ -46,7 +46,8 @@ public class Pilha {
         NodeAtendimento temp = head;
 
         while (temp != null) {
-            System.out.println(temp.data);
+            System.out.println("Nome: "+temp.data.getPaciente().getNome()+" | ID: "+temp.data.getPaciente().getIdPaciente());
+            System.out.println("Horário de atendimento: "+temp.data.getHorarioAtendimento()+" | Status: "+temp.data.getStatus());
             temp = temp.next;
         }
     }

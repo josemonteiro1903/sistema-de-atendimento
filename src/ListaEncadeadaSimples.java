@@ -43,12 +43,15 @@ public class ListaEncadeadaSimples {
 
     public void print(){
         NodeListas temp = head;
-        int listagem = 1;
 
         while (temp != null) {
-            System.out.println("Paciente "+listagem+": "+temp.dataString);
+            if (temp.paciente != null) {
+                System.out.println("Nome: "+temp.paciente.getNome()+" | ID: "+temp.paciente.getIdPaciente());
+            }else{
+                System.out.println(temp.dataString);
+            }
             temp = temp.next;
-            listagem++;
+
         }
     }
 }

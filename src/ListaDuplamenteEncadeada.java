@@ -1,8 +1,8 @@
 public class ListaDuplamenteEncadeada {
 
 
-    NodeListas head;
-    NodeListas tail;
+    NodeProntuario head;
+    NodeProntuario tail;
 
     public ListaDuplamenteEncadeada(){
  
@@ -14,39 +14,39 @@ public class ListaDuplamenteEncadeada {
         return head == null;
     }
 
-    public void insertHead(String data){
-        NodeListas newNodeListas = new NodeListas(data);
+    public void insertHead(Prontuario prontuario){
+        NodeProntuario newNodeProntuario = new NodeProntuario(prontuario);
         if (isNull()) {
-            head = newNodeListas;
-            tail = newNodeListas;
+            head = newNodeProntuario;
+            tail = newNodeProntuario;
         }
         else{
-            head.prev = newNodeListas;
-            newNodeListas.next = head;
-            head = newNodeListas;
+            head.prev = newNodeProntuario;
+            newNodeProntuario.next = head;
+            head = newNodeProntuario;
         }
 
 
     }
-    public void insertTail(String data){
-        NodeListas newNodeListas = new NodeListas(data);
+    public void insertTail(Prontuario prontuario){
+        NodeProntuario newNodeProntuario = new NodeProntuario(prontuario);
         if (isNull()) {
-            head = newNodeListas;
-            tail = newNodeListas;
+            head = newNodeProntuario;
+            tail = newNodeProntuario;
         }
         else{
-            tail.next = newNodeListas;
-            newNodeListas.prev = newNodeListas;
-            tail = newNodeListas;
+            tail.next = newNodeProntuario;
+            newNodeProntuario.prev = newNodeProntuario;
+            tail = newNodeProntuario;
         }
 
     }
 
     public void print(){
-        NodeListas temp = head;
+        NodeProntuario temp = head;
 
         while (temp != null) {
-            System.out.println(temp.dataString);
+            System.out.println(temp.prontuario);
             temp = temp.next;
         }
     }

@@ -21,6 +21,74 @@ public class Prontuario {
         this.listaMedicamentos = new ListaEncadeadaSimples();
     }
 
+    
+
+    public int getIdProntuario() {
+        return idProntuario;
+    }
+
+
+
+    public void setIdProntuario(int idProntuario) {
+        this.idProntuario = idProntuario;
+    }
+
+
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+
+
+    public ListaEncadeadaSimples getListaSintomas() {
+        return listaSintomas;
+    }
+
+
+
+    public void setListaSintomas(ListaEncadeadaSimples listaSintomas) {
+        this.listaSintomas = listaSintomas;
+    }
+
+
+
+    public ListaEncadeadaSimples getListaMedicamentos() {
+        return listaMedicamentos;
+    }
+
+
+
+    public void setListaMedicamentos(ListaEncadeadaSimples listaMedicamentos) {
+        this.listaMedicamentos = listaMedicamentos;
+    }
+
+
+
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+
+
+    public String getObservações() {
+        return observações;
+    }
+
+
+
+    public void setObservações(String observações) {
+        this.observações = observações;
+    }
+
+
+
     public void adicionarMedicamento(Scanner scanner){
         System.out.println("Digite o medicamento que deseja adicionar");
         listaMedicamentos.add(scanner.nextLine(), null);
@@ -52,7 +120,4 @@ public class Prontuario {
     public String toString() {
         return "Prontuario [idProntuario=" + idProntuario + ", paciente=" + paciente + ", diagnostico=" + diagnostico + ", observações=" + observações + "]";
     }
-
-    
-    
 }

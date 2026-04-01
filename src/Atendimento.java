@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Atendimento {
 
     private Paciente paciente;
@@ -17,9 +15,6 @@ public class Atendimento {
         this.medico = medico;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
-    }
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
@@ -41,19 +36,19 @@ public class Atendimento {
     public double getHorarioAtendimento() {
         return horarioAtendimento;
     }
+
     public String getStatus() {
         return status;
     }
-
+    
     public String getMedico() {
         return medico;
     }
-
     public void setMedico(String medico) {
         this.medico = medico;
     }
 
-    public void iniciarAtendimento(Scanner scanner){
+    public void iniciarAtendimento(Selecoes scanner){
         System.out.println("Insira o horário do atendimento");
         double horario = scanner.nextDouble();
 
@@ -83,5 +78,11 @@ public class Atendimento {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    
     
 }

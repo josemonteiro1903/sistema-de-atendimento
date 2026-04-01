@@ -70,33 +70,20 @@ public class App {
                     break;
 
                 case 2:
-                    int opcao = -1;
-                    while(opcao != 0){
-                        System.out.println("========================================");
-                        unidadeAtendimento.getPacientesCadastrados().print();
-                        System.out.println("0 - Sair\n1 - Escolher Paciente");
-                        opcao = scanner.nextInt();
-                        if (opcao == 1) {
-                            System.out.println("Escolha o nome do paciente que quer procurar");
-                            String escolha = scanner.nextLine();
-                            Paciente pacienteEscolhido = unidadeAtendimento.acharPaciente(escolha);
-                            if (pacienteEscolhido == null) {
-                                System.out.println("Paciente não encontrado.");
-                                scanner.apertarParaContinuar();
-                            }else{
-                                pacienteEscolhido.exibirStatus();
-                                scanner.apertarParaContinuar();
-                            }
-                        }else if(opcao != 0){
-                            System.out.println("Opção não reconhecida!");
-                            scanner.apertarParaContinuar();
-                        }
-                    }
+                    unidadeAtendimento.getPacientesCadastrados().print();
+                    scanner.apertarParaContinuar();
+
                     break;
                 case 3:
-                    System.out.println("Qual paciente chegou na fila?");
+                    if(unidadeAtendimento.getPacientesCadastrados().isNull()){
+                        System.out.println("Não há pacientes cadastrados. É necessário cadastrar um paciente primeiro");
+                        scanner.apertarParaContinuar();
+                        break;
+                    }
+
+                    System.out.println("Escreva o ID do paciente que entrou na fila");
                     unidadeAtendimento.getPacientesCadastrados().print();
-                    String escolha = scanner.nextLine();
+                    int escolha = scanner.nextInt();
                     Paciente pacienteEscolhido = unidadeAtendimento.acharPaciente(escolha);
                     if (pacienteEscolhido == null) {
                         System.out.println("Paciente não encontrado.");
@@ -104,42 +91,77 @@ public class App {
                     }else{
                         System.out.println("Escreva o horário de entrada");
                         double horario = scanner.nextDouble();
-                        System.out.println("Escreva o médico que acompanhará o paciente");
-                        String medico = scanner.nextLine();
-                        Atendimento newAtendimento = new Atendimento(pacienteEscolhido, pacienteEscolhido.getIdPaciente(), horario, medico);
+                        System.out.println("O médico Isaac acompanhará o paciente");
+                        Atendimento newAtendimento = new Atendimento(pacienteEscolhido, pacienteEscolhido.getIdPaciente(), horario, "ABC");
                         unidadeAtendimento.registrarChegadaPaciente(newAtendimento);
-                        System.out.println("Paciente registrado na fila!");
                         scanner.apertarParaContinuar();
                     }
                     break;
 
                 case 4:
-                    Fila fila = unidadeAtendimento.getFilaEspera();
-                    NodeAtendimento temp = fila.head;
-                    int posicao = 1;
-                    while(temp != null){
-                        System.out.println("Paciente "+posicao+": "+temp.data.getPaciente().getNome());
-                        temp = temp.next;
-                    }
+                    unidadeAtendimento.getFilaEspera().print();
                     scanner.apertarParaContinuar();
                     break;
                 case 5:
-
+                    boolean continuar = false;
+                    while(continuar == false){
+                        System.out.println("Digite o horário de atendimento!");
+                        double horario = scanner.nextDouble();
+                        if (horario>unidadeAtendimento.getFilaEspera().head.data.getHorarioEntrada()) {
+                            System.out.println("Horario inválido");
+                        }
+                        else{
+                            unidadeAtendimento.getFilaEspera().head.data.setHorarioAtendimento(horario);
+                            unidadeAtendimento.getFilaEspera().head.data.setStatus("Em andamento");
+                            unidadeAtendimento.getFilaEspera().head.data.getPaciente().setStatusAtendimento("Em andamento");
+                            continuar = true;
+                        }
+                    }
+                    unidadeAtendimento.chamarProximoPaciente();
+                    scanner.apertarParaContinuar();
                     break;
-
                 case 6:
+                    System.out.println("Descreva o diagnóstico");
+                    String diagnostico = scanner.nextLine();
+                    int opcao = -1;
+                    ListaEncadeadaSimples medicamentos = new ListaEncadeadaSimples();
+                    while (opcao != 0) {
+                        System.out.println("Descreva o medicamento");
+                        String medicamento = scanner.nextLine();
+                        medicamentos.add(medicamento, null);
+                        System.out.println("Deseja adicionar outro medicamento?\nDigite 0 se deseja sair e continuar o prontuário");
+                        opcao = scanner.nextInt();
+                    }
+                    ListaEncadeadaSimples sintomasPaciente = new ListaEncadeadaSimples();
+                    opcao = -1;
+                    while (opcao != 0) {
+                        System.out.println("Descreva o sintoma");
+                        String sintoma = scanner.nextLine();
+                        sintomasPaciente.add(sintoma, null);
+                        System.out.println("Deseja adicionar outro sintoma?\nDigite 0 se deseja sair e continuar o prontuário");
+                        opcao = scanner.nextInt();
+                    }
+                    System.out.println("Descreva as observações");
+                    String observacao = scanner.nextLine();
+                    unidadeAtendimento.finalizarAtendimento(diagnostico, medicamentos, sintomasPaciente, observacao);
+                    scanner.apertarParaContinuar();
                     break;
                 case 7:
-
+                    unidadeAtendimento.exibirHistorico();
+                    scanner.apertarParaContinuar();
                     break;
 
                 case 8:
+                    unidadeAtendimento.navegarProntuarios();
                     break;
+
+                case 0:
+                    break;
+
                 default:
                     System.out.println("Opção invalida");
                     break;
             }
         }
-
     }
 }
